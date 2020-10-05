@@ -13,12 +13,22 @@ header ul li {
   margin: 15px 0 0 25%;
 }
 
+#start {
+  height: 50px;
+  width: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .container {
   text-align: center;
   margin: 50px auto;
   height: 500px;
   width: 80%;
   background-color: aquamarine;
+  display: none;
 }
 
 .question {

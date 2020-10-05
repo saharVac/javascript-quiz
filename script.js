@@ -62,3 +62,10 @@ var questions = [
 ];
 
 var correct = [3, 2, 0, 0, 3, 1, 3, 1, 2];
+
+$(document).ready(function () {
+  $("#start").click(function () {
+    $(this).hide();
+    $(".container").show();
+  });
+});
