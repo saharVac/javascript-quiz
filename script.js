@@ -9,7 +9,6 @@ var container = document.querySelector(".container");
 var questions;
 var chosen = 0;
 var timeEl = document.getElementById("timer");
-console.log(timer);
 var time = 150;
 var timerInterval;
 var start = document.getElementById("start");
@@ -74,6 +73,7 @@ function initializeQuestions() {
   ];
 }
 
+// array representing correct answer indeces
 var correct = [0, 2, 2, 0, 0, 1, 2, 2, 3, 3];
 
 // Functionality for choices
@@ -110,9 +110,11 @@ function compareAnswer() {
   //timerInterval highlighting correct answer in green
   //add score if correct
   console.log("chosen: " + (chosen - 1) + " answer: " + answer);
-  if (chosen - 1 === answer) {
+
+  if (chosen - 1 == answer) {
     score++;
   }
+  console.log("score: " + score);
 }
 
 function quizEnd() {
