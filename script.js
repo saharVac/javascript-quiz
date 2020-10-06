@@ -18,13 +18,8 @@ var finalScore = document.getElementById("final-score");
 function initializeQuestions() {
   questions = [
     {
-      q: "Which of the following correctly describe JavaScript?",
-      a: [
-        "It is a lightweight, interpreted programming language",
-        "It has object oriented capabilities that allows you to build interactivity into otherwise static HTML pages",
-        "The general-purpose core of the language has been embedded in Netscape, Internet Explorer, and other web browsers",
-        "All of the above",
-      ],
+      q: "Can you access Cookie using javascript?",
+      a: ["Yes", "No", "Both of the above", "None of the above"],
     },
     {
       q:
@@ -32,64 +27,59 @@ function initializeQuestions() {
       a: [
         "named function",
         "anonymous function",
-        "Both of the above",
+        "Both of the above.",
         "None of the above",
       ],
     },
     {
-      q: "Which built-in method returns the length of the string?",
-      a: ["length()", "size()", "index()", "None of the above"],
+      q:
+        "Which built-in method removes the last element from an array and returns that element?",
+      a: ["last()", "get()", "pop()", "None of the above"],
     },
     {
       q:
-        "Which built-in method returns the calling string value converted to upper case? ",
-      a: [
-        "toUpperCase()",
-        "toUpper()",
-        "changeCase(case)",
-        "None of the above.",
-      ],
+        "All user-defined objects and built-in objects are descendants of an object called Object?",
+      a: ["true", "false", "Both", "Neither"],
     },
     {
       q:
-        "Which of the following function of Boolean object returns a string containing the source of the Boolean object?",
-      a: ["valueOf()", "toString()", "None of the above.", "toSource()"],
+        "Which of the following function of Number object returns a string value version of the current number?",
+      a: ["toString()", "toFixed()", "toLocaleString()", "toPrecision()"],
     },
     {
       q:
-        "Which of the following function of String object returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order?",
-      a: ["search()", "localeCompare()", "substr()", "concat()"],
+        "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
+      a: ["slice()", "split()", "replace()", "search()"],
     },
     {
       q:
-        "Which of the following function of String object returns the primitive value of the specified object?",
-      a: ["toLocaleUpperCase()", "toUpperCase()", "toString()", "valueOf()"],
+        "Which of the following function of String object returns a string representing the specified object?",
+      a: ["toLocaleUpperCase()", "toUpperCase()", "toString()", "substring()"],
     },
     {
       q:
-        "Which of the following function of String object causes a string to be displayed in a small font, as if it were in a <small> tag?",
-      a: ["link()", "small()", "sup()", "sub()"],
+        "Which of the following function of String object causes a string to be displayed as struck-out text, as if it were in a <strike> tag?",
+      a: ["sup()", "toUpperCase()", "toString()", "valueOf()"],
     },
     {
       q:
-        "Which of the following function of Array object calls a function for each element in the array?",
-      a: ["concat()", "every()", "forEach()", "filter()"],
+        "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
+      a: ["push()", "join()", "pop()", "map()"],
     },
     {
       q:
-        "Which of the following function of Array object adds one or more elements to the front of an array and returns the new length of the array?",
-      a: ["unshift()", "sort()", "splice()", "toString()"],
+        "Which of the following function of Array object returns true if at least one element in this array satisfies the provided testing function?",
+      a: ["reverse()", "shift()", "slice()", "some()"],
     },
   ];
 }
 
-var correct = [3, 2, 0, 0, 3, 1, 3, 1, 2];
+var correct = [0, 2, 2, 0, 0, 1, 2, 2, 3, 3];
 
 // Functionality for choices
 for (let i = 1; i <= 4; i++) {
   document.getElementById("choice-" + i).addEventListener("click", function () {
     chosen = i;
-    console.log(chosen);
   });
 }
 
@@ -109,6 +99,7 @@ function displayQuestion() {
     document.getElementById("choice-" + (i + 1)).innerHTML = question[0].a[i];
   }
 
+  console.log("correct answers left: " + correct);
   // remove actual answer from answers list
   answer = correct.splice(randIndex, 1);
 
@@ -118,8 +109,8 @@ function displayQuestion() {
 function compareAnswer() {
   //timerInterval highlighting correct answer in green
   //add score if correct
-  console.log("chosen: " + chosen + " answer: " + answer);
-  if (chosen === answer) {
+  console.log("chosen: " + (chosen - 1) + " answer: " + answer);
+  if (chosen - 1 === answer) {
     score++;
   }
 }
@@ -147,12 +138,8 @@ function startQuiz() {
 
     // If a choice was made or time for question ran out
     if (chosen !== 0 || time === timeUntil) {
-      console.log("chosen: " + chosen);
-      console.log("after question " + (10 - questions.length));
-
       compareAnswer();
 
-      console.log(questions.length);
       //if more questions left
       if (questions.length > 0) {
         // display new question
@@ -174,8 +161,6 @@ function startQuiz() {
       quizEnd();
     }
   }, 1000);
-
-  console.log("done");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
