@@ -87,9 +87,8 @@ var correct = [3, 2, 0, 0, 3, 1, 3, 1, 2];
 
 // Functionality for choices
 for (let i = 1; i <= 4; i++) {
-  console.log("choice-" + i);
   document.getElementById("choice-" + i).addEventListener("click", function () {
-    chosen = i + 1;
+    chosen = i;
     console.log(chosen);
   });
 }
@@ -116,11 +115,13 @@ function displayQuestion() {
   chosen = 0;
 }
 
-function compareAnswer(choice, actual) {
+function compareAnswer() {
   //timerInterval highlighting correct answer in green
-
   //add score if correct
-  score++;
+  console.log("chosen: " + chosen + " answer: " + answer);
+  if (chosen === answer) {
+    score++;
+  }
 }
 
 function quizEnd() {
@@ -149,7 +150,7 @@ function startQuiz() {
       console.log("chosen: " + chosen);
       console.log("after question " + (10 - questions.length));
 
-      //compareAnswer(chosen, answer);
+      compareAnswer();
 
       console.log(questions.length);
       //if more questions left
