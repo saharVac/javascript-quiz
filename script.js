@@ -13,6 +13,7 @@ var time = 150;
 var timerInterval;
 var start = document.getElementById("start");
 var finalScore = document.getElementById("final-score");
+var submit = document.getElementById("submit");
 
 function initializeQuestions() {
   questions = [
@@ -82,6 +83,11 @@ for (let i = 1; i <= 4; i++) {
     chosen = i;
   });
 }
+
+// Submitting score
+submit.addEventListener("click", function (event) {
+  event.preventDefault();
+});
 
 function displayQuestion() {
   // select a random question
