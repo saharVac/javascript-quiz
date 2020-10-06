@@ -18,26 +18,39 @@
     </header>
 
     <main>
-      <button id="start">START</button>
+      <button id="start">START QUIZ</button>
 
       <div class="container">
+        <div id="timer"></div>
         <!-- Quetion -->
-        <div class="question">QUESTION?</div>
+        <div class="question-container">
+          <div class="question"></div>
+        </div>
+
         <!-- Answers -->
         <div class="choices">
           <div class="choice">
-            <div class="choice-text" id="choice-1">A</div>
+            <div class="choice-text" id="choice-1"></div>
           </div>
           <div class="choice">
-            <div class="choice-text" id="choice-2">B</div>
+            <div class="choice-text" id="choice-2"></div>
           </div>
           <div class="choice">
-            <div class="choice-text" id="choice-3">C</div>
+            <div class="choice-text" id="choice-3"></div>
           </div>
           <div class="choice">
-            <div class="choice-text" id="choice-4">D</div>
+            <div class="choice-text" id="choice-4"></div>
           </div>
         </div>
+      </div>
+
+      <div class="score">
+        <h1>Your Score:</h1>
+        <h2 id="final-score"></h2>
+        <form>
+          <h3>Enter Your Initials: <input type="text" id="initials" /></h3>
+          <button id="submit">Submit Score</button>
+        </form>
       </div>
     </main>
 
