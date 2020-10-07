@@ -99,7 +99,7 @@ submit.addEventListener("click", function (event) {
     };
     localStorage.setItem(ID, JSON.stringify(item));
     console.log(localStorage);
-    //location.reload();
+    location.reload();
   }
 });
 

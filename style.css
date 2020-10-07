@@ -13,6 +13,10 @@ header ul li {
   margin: 15px 0 0 25%;
 }
 
+header ul li a {
+  text-decoration: none;
+}
+
 #start {
   height: 50px;
   width: 120px;
@@ -73,4 +77,41 @@ header ul li {
   text-align: center;
   border: 5px solid black;
   display: none;
+}
+
+#title {
+  font-size: 70px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.scores-display {
+  background-color: darkgoldenrod;
+  width: 90%;
+  margin: auto;
+}
+
+#initials-container,
+#scores-container,
+#dates-container {
+  height: 100px;
+  width: 30%;
+  margin-right: 3%;
+  float: left;
+}
+
+#initials-list,
+#scores-list,
+#dates-list {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  margin-left: 0;
+}
+
+#initials-list li,
+#scores-list li,
+#dates-list li {
+  height: 60px;
+  width: 100%;
 }
