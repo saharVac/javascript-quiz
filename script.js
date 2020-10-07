@@ -13,6 +13,7 @@ var time = 150;
 var timerInterval;
 var start = document.getElementById("start");
 var finalScore = document.getElementById("final-score");
+var initials = document.getElementById("initials");
 var submit = document.getElementById("submit");
 
 function initializeQuestions() {
@@ -87,6 +88,12 @@ for (let i = 1; i <= 4; i++) {
 // Submitting score
 submit.addEventListener("click", function (event) {
   event.preventDefault();
+  // make sure field isn't empty
+  name = initials.value;
+  if (name) {
+    localStorage.setItem(name, score);
+    console.log(localStorage);
+  }
 });
 
 function displayQuestion() {
@@ -105,7 +112,6 @@ function displayQuestion() {
     document.getElementById("choice-" + (i + 1)).innerHTML = question[0].a[i];
   }
 
-  console.log("correct answers left: " + correct);
   // remove actual answer from answers list
   answer = correct.splice(randIndex, 1);
 
@@ -115,12 +121,10 @@ function displayQuestion() {
 function compareAnswer() {
   //timerInterval highlighting correct answer in green
   //add score if correct
-  console.log("chosen: " + (chosen - 1) + " answer: " + answer);
 
   if (chosen - 1 == answer) {
     score++;
   }
-  console.log("score: " + score);
 }
 
 function quizEnd() {
@@ -172,11 +176,12 @@ function startQuiz() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // initialize Questions
-  initializeQuestions();
+  console.dir(localStorage);
 
   // when clicking button
   start.addEventListener("click", function () {
+    // initialize Questions
+    initializeQuestions();
     // button disappears
     this.style.display = "none";
     // container shows
