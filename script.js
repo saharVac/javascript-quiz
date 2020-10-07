@@ -91,8 +91,15 @@ submit.addEventListener("click", function (event) {
   // make sure field isn't empty
   name = initials.value;
   if (name) {
-    localStorage.setItem(name, score);
+    var ID = localStorage.length.toString();
+    var item = {
+      init: name,
+      points: score,
+      date: Date().substr(0, 24),
+    };
+    localStorage.setItem(ID, JSON.stringify(item));
     console.log(localStorage);
+    //location.reload();
   }
 });
 
@@ -176,8 +183,6 @@ function startQuiz() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.dir(localStorage);
-
   // when clicking button
   start.addEventListener("click", function () {
     // initialize Questions
