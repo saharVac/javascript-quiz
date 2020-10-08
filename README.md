@@ -12,18 +12,11 @@ https://saharvac.github.io/javascript-quiz
 
 ## Running the application
 
-Page is easily navigable, refer to the following gif and screenshots:
+Page is easily navigable, refer to the following gif and screenshot:
 
 ![walkthrough gif](assets/walkthrough.gif)
 
 ![screenshot](assets/1.png)
-![screenshot](assets/2.png)
-![screenshot](assets/3.png)
-![screenshot](assets/4.png)
-![screenshot](assets/5.png)
-![screenshot](assets/6.png)
-![screenshot](assets/7.png)
-![screenshot](assets/8.png)
 
 ## Website used
 
