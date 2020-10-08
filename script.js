@@ -84,6 +84,7 @@ for (let i = 1; i <= 4; i++) {
     .getElementById("choice-" + i)
     .parentElement.addEventListener("click", function () {
       chosen = i;
+      updateQuestion();
     });
 }
 
@@ -147,6 +148,22 @@ function quizEnd() {
   document.querySelector(".score").style.display = "block";
 }
 
+function updateQuestion() {
+  compareAnswer();
+
+  //if more questions left
+  if (questions.length > 0) {
+    // display new question
+    displayQuestion();
+
+    // time until which question must be answered
+    timeUntil = time - 15;
+  } else {
+    //end quiz
+    quizEnd();
+  }
+}
+
 function startQuiz() {
   displayQuestion();
   var timeUntil = 135;
@@ -158,20 +175,8 @@ function startQuiz() {
     timeEl.textContent = "Seconds Left: " + time;
 
     // If a choice was made or time for question ran out
-    if (chosen !== 0 || time === timeUntil) {
-      compareAnswer();
-
-      //if more questions left
-      if (questions.length > 0) {
-        // display new question
-        displayQuestion();
-
-        // time until which question must be answered
-        timeUntil = time - 15;
-      } else {
-        //end quiz
-        quizEnd();
-      }
+    if (time === timeUntil) {
+      updateQuestion();
     }
 
     // when time runs out
