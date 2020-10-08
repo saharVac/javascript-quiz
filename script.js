@@ -1,6 +1,7 @@
 // Questions from https://www.tutorialspoint.com/javascript/javascript_online_quiz.htm
 
 // making questions and chosen answer global dependencies
+var description = document.getElementById("description");
 var score = 0;
 var randIndex;
 var question;
@@ -10,6 +11,7 @@ var questions;
 var chosen = 0;
 var timeEl = document.getElementById("timer");
 var time = 150;
+var timeUntil;
 var timerInterval;
 var start = document.getElementById("start");
 var finalScore = document.getElementById("final-score");
@@ -84,6 +86,7 @@ for (let i = 1; i <= 4; i++) {
     .getElementById("choice-" + i)
     .parentElement.addEventListener("click", function () {
       chosen = i;
+      compareAnswer();
       updateQuestion();
     });
 }
@@ -101,7 +104,6 @@ submit.addEventListener("click", function (event) {
       date: Date().substr(0, 24),
     };
     localStorage.setItem(ID, JSON.stringify(item));
-    console.log(localStorage);
     location.reload();
   }
 });
@@ -129,11 +131,18 @@ function displayQuestion() {
 }
 
 function compareAnswer() {
-  //timerInterval highlighting correct answer in green
-  //add score if correct
-
+  // compare chosen answer to actual answer
   if (chosen - 1 == answer) {
+    //add score if correct
     score++;
+  } else {
+    // deduct 15 seconds if wrong
+    // if not enough time to take off, end quiz
+    if (time > 15) {
+      time -= 15;
+    } else {
+      quizEnd();
+    }
   }
 }
 
@@ -149,8 +158,6 @@ function quizEnd() {
 }
 
 function updateQuestion() {
-  compareAnswer();
-
   //if more questions left
   if (questions.length > 0) {
     // display new question
@@ -167,7 +174,7 @@ function updateQuestion() {
 function startQuiz() {
   displayQuestion();
 
-  var timeUntil = 135;
+  timeUntil = 135;
   // start timer
   timerInterval = setInterval(function () {
     // update time
@@ -176,7 +183,7 @@ function startQuiz() {
     timeEl.textContent = "Seconds Left: " + time;
 
     // If a choice was made or time for question ran out
-    if (time === timeUntil) {
+    if (time <= timeUntil) {
       updateQuestion();
     }
 
@@ -195,7 +202,8 @@ document.addEventListener("DOMContentLoaded", function () {
   start.addEventListener("click", function () {
     // initialize Questions
     initializeQuestions();
-    // button disappears
+    // description and button disappears
+    description.style.display = "none";
     this.style.display = "none";
     // container shows
     container.style.display = "block";

@@ -1,29 +1,64 @@
+html,
+a:visited {
+  color: #8b5d33;
+}
+
 body {
+  background-color: #bbe1c3;
   margin: 0;
 }
 
 header {
-  background-color: blue;
+  margin: 0 auto;
   height: 50px;
+  background-color: #869d7a;
+}
+
+nav {
+  height: 100%;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 header ul li {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   list-style: none;
   float: left;
-  margin: 15px 0 0 25%;
+  width: 50%;
 }
 
 header ul li a {
+  font-size: 25px;
   text-decoration: none;
 }
 
+header ul li a:hover {
+  font-weight: 700;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+h2 {
+  text-align: center;
+}
+
 #start {
+  background-color: #869d7a;
   height: 50px;
   width: 120px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
 .container {
@@ -31,24 +66,23 @@ header ul li a {
   margin: 50px auto;
   height: 500px;
   width: 80%;
-  background-color: aquamarine;
   display: none;
 }
 
 #timer {
-  background-color: darkblue;
+  font-size: 20px;
   width: 100%;
   height: 30px;
 }
 
 .question-container {
-  background-color: brown;
   padding-top: 15px;
   width: 100%;
   height: 20%;
 }
 
 .question {
+  font-size: 25px;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -59,7 +93,7 @@ header ul li a {
 }
 
 .choice {
-  background-color: coral;
+  border: 3px solid #d38a6e;
   height: 20%;
   margin-top: 16px;
 }
@@ -71,7 +105,7 @@ header ul li a {
 }
 
 .score {
-  margin: 30% auto;
+  margin: 130px auto;
   width: 50%;
   padding: 30px;
   text-align: center;
@@ -112,6 +146,8 @@ header ul li a {
 #initials-list li,
 #scores-list li,
 #dates-list li {
-  height: 60px;
+  font-weight: 550;
+  text-align: center;
+  height: 70px;
   width: 100%;
 }

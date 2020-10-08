@@ -12,7 +12,6 @@ for (let i = 0; i < localStorage.length; i++) {
   var initials = document.createElement("li");
   var score = document.createElement("li");
   var date = document.createElement("li");
-  console.log(scoresList);
   // give list elements info from item
   initials.textContent = item.init;
   score.textContent = item.points;
