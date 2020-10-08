@@ -166,6 +166,7 @@ function updateQuestion() {
 
 function startQuiz() {
   displayQuestion();
+
   var timeUntil = 135;
   // start timer
   timerInterval = setInterval(function () {
@@ -198,6 +199,8 @@ document.addEventListener("DOMContentLoaded", function () {
     this.style.display = "none";
     // container shows
     container.style.display = "block";
+
+    timeEl.textContent = "Seconds Left: " + time;
 
     // start iterating though questions
     startQuiz();
