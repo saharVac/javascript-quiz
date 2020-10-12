@@ -1,5 +1,6 @@
 html,
-a:visited {
+a:visited,
+a:active {
   color: #8b5d33;
 }
 
